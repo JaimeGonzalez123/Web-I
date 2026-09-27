@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piedra, papel o tijera</title>
+  <link rel="stylesheet" href="styleDOM.css">
+</head>
+<body>
+
+  <main class="tarjeta">
+    <h1>✊✋✌️ Piedra, papel o tijera</h1>
+    <p>Elige tu jugada:</p>
+
+    <div class="opciones">
+      <button class="btn-opcion" data-opcion="piedra">✊<br>Piedra</button>
+      <button class="btn-opcion" data-opcion="papel">✋<br>Papel</button>
+      <button class="btn-opcion" data-opcion="tijera">✌️<br>Tijera</button>
+    </div>
+
+    <div class="resultado-ronda">
+      <div class="jugador">
+        <span class="etiqueta">Tú</span>
+        <span id="jugada-jugador" class="emoji">❓</span>
+      </div>
+      <span class="vs">VS</span>
+      <div class="jugador">
+        <span class="etiqueta">Máquina</span>
+        <span id="jugada-maquina" class="emoji">❓</span>
+      </div>
+    </div>
+
+    <p id="mensaje" class="mensaje">Elige una opción para empezar</p>
+
+    <div class="marcador">
+      <span>Tú: <strong id="puntos-jugador">0</strong></span>
+      <span>Máquina: <strong id="puntos-maquina">0</strong></span>
+    </div>
+
+    <button id="btn-reiniciar" class="oculto">Reiniciar marcador</button>
+  </main>
+
+  <script src="scriptDOM.js"></script>
+</body>
+</html>
