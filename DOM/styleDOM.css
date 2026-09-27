@@ -104,3 +104,15 @@ h1 {
 .oculto {
   display: none;
 }
+.historial {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  font-size: 0.9rem;
+  color: #b8b2d1;
+}
+
+.historial li {
+  padding: 4px 0;
+  border-top: 1px solid #444066;
+}
