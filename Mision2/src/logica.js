@@ -63,3 +63,41 @@ export function normalizarPokemon(datos) {
     total: stats.reduce((suma, s) => suma + s.valor, 0),
   };
 }
+
+export function filtrarPorNombre(lista, texto) {
+  const busqueda = texto.trim().toLowerCase();
+  return lista.filter((p) => p.nombre.includes(busqueda));
+}
+
+const CRITERIOS = {
+  numero: (a, b) => a.id - b.id,
+  total: (a, b) => b.total - a.total,
+  nombre: (a, b) => a.nombre.localeCompare(b.nombre, "es"),
+  peso: (a, b) => b.peso - a.peso,
+};
+
+// toSorted: devuelve un array nuevo, el original queda intacto
+export const ordenar = (lista, criterio) => lista.toSorted(CRITERIOS[criterio] ?? CRITERIOS.numero);
+
+// Estadísticas del equipo cargado (se calculan sobre la lista completa)
+export function resumir(lista, tipoActual) {
+  if (lista.length === 0) return null;
+
+  const campeon = lista.reduce((mejor, p) => (p.total > mejor.total ? p : mejor));
+  const masPesado = lista.reduce((max, p) => (p.peso > max.peso ? p : max));
+  const media = Math.round(lista.reduce((suma, p) => suma + p.total, 0) / lista.length);
+
+  // ¿Con qué otro tipo se combina cada Pokémon? ("puro" si solo tiene uno)
+  const porCompanero = Object.groupBy(
+    lista,
+    (p) => p.tipos.find((t) => t !== tipoActual) ?? "puro",
+  );
+  const combinaciones = Object.entries(porCompanero)
+    .map(([tipo, miembros]) => ({
+      texto: tipo === "puro" ? "Puro" : nombreTipo(tipo),
+      cantidad: miembros.length,
+    }))
+    .toSorted((a, b) => b.cantidad - a.cantidad);
+
+  return { campeon, masPesado, media, combinaciones };
+}
