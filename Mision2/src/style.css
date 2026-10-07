@@ -220,3 +220,35 @@ select:focus-visible, input:focus-visible, .boton:focus-visible {
 .stat-barra { height: 7px; background: #eee9df; border-radius: 4px; overflow: hidden; }
 .stat-barra span { display: block; height: 100%; background: var(--color); border-radius: 4px; }
 
+/* ---------- Colores por tipo ---------- */
+
+.tipo-normal { --color: #a8a77a; }
+.tipo-fire { --color: #ee8130; }
+.tipo-water { --color: #6390f0; }
+.tipo-electric { --color: #e0b800; }
+.tipo-grass { --color: #5fb83c; }
+.tipo-ice { --color: #66c8c4; }
+.tipo-fighting { --color: #c22e28; }
+.tipo-poison { --color: #a33ea1; }
+.tipo-ground { --color: #d0a94e; }
+.tipo-flying { --color: #8f7ff0; }
+.tipo-psychic { --color: #f95587; }
+.tipo-bug { --color: #a6b91a; }
+.tipo-rock { --color: #b6a136; }
+.tipo-ghost { --color: #735797; }
+.tipo-dragon { --color: #6f35fc; }
+.tipo-dark { --color: #705746; }
+.tipo-steel { --color: #8f8fb0; }
+.tipo-fairy { --color: #d685ad; }
+.tipo-stellar { --color: #40b5a5; }
+.tipo-unknown, .tipo-shadow { --color: #68a090; }
+
+.pie { padding: 18px; text-align: center; font-size: 0.85rem; color: var(--suave); }
+.pie a { color: var(--rojo); }
+
+@media (max-width: 600px) {
+  .cabecera { padding: 14px 16px; gap: 14px; }
+  .cabecera h1 { font-size: 1.5rem; }
+  .luz.grande { width: 36px; height: 36px; }
+  .panel label, select, input { width: 100%; }
+}
