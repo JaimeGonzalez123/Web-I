@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PokéOdisea: explora Pokémon por tipo con datos de la PokeAPI" />
+    <title>PokéOdisea · Async Odyssey</title>
+  </head>
+  <body>
+    <header class="cabecera">
+      <div class="luces" aria-hidden="true">
+        <span class="luz grande"></span>
+        <span class="luz roja"></span>
+        <span class="luz amarilla"></span>
+        <span class="luz verde"></span>
+      </div>
+      <div>
+        <h1>PokéOdisea</h1>
+        <p class="lema">«El event loop no espera a nadie.» — ni los Pokémon tampoco.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" aria-label="Controles">
+        <label>
+          Tipo
+          <select id="tipo" disabled>
+            <option value="">Cargando tipos…</option>
+          </select>
+        </label>
+        <label>
+          Buscar por nombre
+          <input id="busqueda" type="search" placeholder="p. ej. char" autocomplete="off" />
+        </label>
+        <label>
+          Ordenar por
+          <select id="orden">
+            <option value="numero">Nº de Pokédex</option>
+            <option value="total">Más fuertes (Σ stats)</option>
+            <option value="nombre">Nombre (A-Z)</option>
+            <option value="peso">Más pesados</option>
+          </select>
+        </label>
+        <button id="vaciar-cache" type="button" class="boton secundario">Vaciar caché</button>
+        <p id="aviso-cache" class="aviso-cache" aria-live="polite"></p>
+      </section>
+
+      <div id="estado" class="estado" aria-live="polite"></div>
+      <section id="resumen" class="resumen" aria-label="Resumen del tipo"></section>
+      <section id="rejilla" class="rejilla" aria-label="Pokémon"></section>
+    </main>
+
+    <footer class="pie">
+      Datos de <a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a> ·
+      Web Development I · Misión 2
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
