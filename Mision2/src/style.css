@@ -98,3 +98,125 @@ select:focus-visible, input:focus-visible, .boton:focus-visible {
 .aviso-cache { flex-basis: 100%; margin: 0; font-size: 0.85rem; color: var(--suave); }
 .aviso-cache:empty { display: none; }
 
+/* ---------- Estados ---------- */
+
+.estado:empty { display: none; }
+
+.estado {
+  margin-top: 24px;
+  padding: 40px 16px;
+  text-align: center;
+  border-radius: var(--radio);
+  color: var(--suave);
+}
+.estado p { margin: 6px 0; font-size: 1.05rem; }
+.estado .icono { font-size: 2.5rem; }
+.estado.error { background: #fde8ea; color: #8a1022; border: 1px solid #f5b8c1; }
+.estado.error .boton { margin-top: 12px; }
+
+/* Pokéball que gira mientras carga */
+.pokeball {
+  display: inline-block;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 3px solid #222;
+  background: linear-gradient(to bottom, var(--rojo) 0 46%, #222 46% 54%, #fff 54% 100%);
+  position: relative;
+  animation: girar 0.9s ease-in-out infinite;
+}
+.pokeball::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 12px; height: 12px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #222;
+}
+@keyframes girar {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-20deg); }
+  75% { transform: rotate(20deg); }
+}
+
+/* ---------- Resumen ---------- */
+
+.resumen:empty { display: none; }
+
+.resumen {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.dato {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+.dato strong { font-size: 1.35rem; text-transform: capitalize; }
+.dato span { color: var(--suave); font-size: 0.9rem; }
+.dato .etiqueta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.dato .combinaciones { color: var(--texto); font-size: 0.95rem; line-height: 1.5; }
+
+.origen { grid-column: 1 / -1; margin: 0; font-size: 0.85rem; color: var(--suave); }
+.origen .fallo { color: #b0102a; font-weight: 600; }
+
+/* ---------- Rejilla de tarjetas ---------- */
+
+.rejilla {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 16px 18px;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--color) 22%, #fff) 0 45%, var(--tarjeta) 45%);
+  border: 1px solid var(--borde);
+  border-top: 6px solid var(--color);
+  border-radius: var(--radio);
+  animation: aparecer 0.35s ease both;
+}
+.tarjeta:hover { box-shadow: 0 8px 22px #0001; }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.tarjeta header { width: 100%; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--suave); }
+.tarjeta .total { font-weight: 700; color: var(--texto); }
+.tarjeta img, .sin-imagen { width: 160px; height: 160px; object-fit: contain; }
+.sin-imagen { display: grid; place-items: center; font-size: 4rem; color: var(--borde); }
+.tarjeta h2 { margin: 6px 0 8px; font-size: 1.2rem; text-transform: capitalize; }
+.medidas { margin: 8px 0 10px; font-size: 0.85rem; color: var(--suave); }
+
+.chips { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.chip {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--color);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-shadow: 0 1px 1px #0004;
+}
+
+.stats { list-style: none; margin: 0; padding: 0; width: 100%; display: grid; gap: 4px; }
+.stats li { display: grid; grid-template-columns: 74px 1fr 32px; align-items: center; gap: 8px; font-size: 0.8rem; }
+.stat-nombre { color: var(--suave); }
+.stat-valor { text-align: right; font-variant-numeric: tabular-nums; }
+.stat-barra { height: 7px; background: #eee9df; border-radius: 4px; overflow: hidden; }
+.stat-barra span { display: block; height: 100%; background: var(--color); border-radius: 4px; }
+
