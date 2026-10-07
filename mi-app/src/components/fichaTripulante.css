@@ -1,0 +1,38 @@
+.tripulacion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.ficha {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.ficha:hover {
+  transform: translateY(-4px);
+}
+
+.ficha h2 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+  color: var(--text-h);
+}
+
+.ficha p {
+  margin: 4px 0;
+}
+
+.ficha .etiqueta {
+  font-weight: 600;
+  color: var(--accent);
+}
