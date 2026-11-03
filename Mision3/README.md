@@ -95,12 +95,12 @@ Mision3/
 
 ## Declaración de uso de IA
 
-He usado **Claude (Anthropic)** con Claude Code. Le pasé el enunciado de la M3, la rúbrica, la diapositiva de «Buenas prácticas y errores comunes» de la U3 y el código de mi M2, y le pedí que hiciera la misión entera.
+He usado **Claude (Anthropic)** con Claude Code. Le pasé el enunciado de la M3, la rúbrica, la diapositiva de «Buenas prácticas y errores comunes» de la U3 y el código de mi M2, y le pedí que me ayudara a reinventar la mision dos para hacerlo con react.
 
 Prompts reales (resumidos):
 
 1. «Reconstruye (o reinventa) tu app de la misión anterior en React 19: componentes, props, estado y efectos» (el enunciado completo de la M3, con la rúbrica y el bonus).
-2. «Hacerla entera»: la reconstruye en React 19 con Vite, siguiendo la rúbrica y la diapositiva de buenas prácticas, con el custom hook del bonus y este README.
+
 
 Qué hizo la IA: la descomposición en componentes, los dos hooks, la adaptación de `api.js` para cancelar peticiones, Mi equipo y este README. Reutilizó `logica.js` y `cache.js` de mi M2.
 
