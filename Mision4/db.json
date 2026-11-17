@@ -1,0 +1,106 @@
+{
+  "entrenadores": [
+    {
+      "id": 1,
+      "alias": "Rojo_Meseta",
+      "nombre": "Rojo",
+      "email": "rojo@liga-kanto.es",
+      "fechaNacimiento": "2004-08-08",
+      "region": "Kanto",
+      "categoria": "abierta",
+      "equipo": [
+        {
+          "especie": "pikachu",
+          "mote": "",
+          "nivel": 88
+        },
+        {
+          "especie": "charizard",
+          "mote": "Lumbre",
+          "nivel": 84
+        },
+        {
+          "especie": "snorlax",
+          "mote": "",
+          "nivel": 82
+        }
+      ],
+      "lema": "...",
+      "inscritoEl": "2026-11-10T17:32:00.000Z"
+    },
+    {
+      "id": 2,
+      "alias": "Lyra_J",
+      "nombre": "Lyra",
+      "email": "lyra@pueblo-primavera.es",
+      "fechaNacimiento": "2013-03-02",
+      "region": "Johto",
+      "categoria": "junior",
+      "equipo": [
+        {
+          "especie": "chikorita",
+          "mote": "Hojita",
+          "nivel": 32
+        },
+        {
+          "especie": "togepi",
+          "mote": "",
+          "nivel": 20
+        }
+      ],
+      "lema": "Con cariño también se gana",
+      "inscritoEl": "2026-11-12T09:15:00.000Z"
+    },
+    {
+      "id": 3,
+      "alias": "NemonaPaldea",
+      "nombre": "Nemona",
+      "email": "nemona@academia-naranja.es",
+      "fechaNacimiento": "2008-06-21",
+      "region": "Paldea",
+      "categoria": "abierta",
+      "equipo": [
+        {
+          "especie": "lycanroc",
+          "mote": "",
+          "nivel": 66
+        },
+        {
+          "especie": "pawmot",
+          "mote": "Chispa",
+          "nivel": 68
+        },
+        {
+          "especie": "goodra",
+          "mote": "",
+          "nivel": 65
+        },
+        {
+          "especie": "orthworm",
+          "mote": "",
+          "nivel": 64
+        }
+      ],
+      "lema": "¡Combate conmigo otra vez!",
+      "inscritoEl": "2026-11-14T19:40:00.000Z"
+    },
+    {
+      "id": 4,
+      "alias": "MissingNo",
+      "nombre": "",
+      "email": "glitch@@isla-canela",
+      "fechaNacimiento": "1996-02-27",
+      "region": "Isla Canela",
+      "categoria": "abierta",
+      "equipo": [
+        {
+          "especie": "missingno",
+          "mote": "",
+          "nivel": 255
+        }
+      ],
+      "lema": "",
+      "inscritoEl": "nunca"
+    }
+  ]
+}
