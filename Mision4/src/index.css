@@ -1,0 +1,241 @@
+:root {
+  --rojo: #dc0a2d;
+  --rojo-oscuro: #a00720;
+  --fondo: #f3efe6;
+  --tarjeta: #ffffff;
+  --texto: #1f1d1a;
+  --suave: #6b665e;
+  --borde: #ded8cc;
+  --error: #b3261e;
+  --error-fondo: #fdecea;
+  --exito: #1f7a3d;
+  --exito-fondo: #e6f4ea;
+  --info-fondo: #eef3fb;
+  --foco: #2a6df4;
+  --radio: 14px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--texto);
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-height: 100vh; background: var(--fondo); }
+
+h1, h2, h3 { margin: 0; }
+
+/* ---------- Cabecera ---------- */
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  background: var(--rojo);
+  color: #fff;
+  border-bottom: 6px solid var(--rojo-oscuro);
+}
+.cabecera h1 { font-size: 1.8rem; }
+.lema-cabecera { margin: 4px 0 0; opacity: 0.85; }
+.pokeball {
+  width: 46px; height: 46px; flex-shrink: 0;
+  border-radius: 50%;
+  border: 4px solid #1f1d1a;
+  background: linear-gradient(#fff 0 0) center / 100% 4px no-repeat,
+    linear-gradient(to bottom, var(--rojo-oscuro) 50%, #fff 50%);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* ---------- Disposición ---------- */
+
+.disposicion {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+@media (max-width: 900px) {
+  .disposicion { grid-template-columns: minmax(0, 1fr); }
+}
+
+.tarjeta-panel {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.subtitulo { margin: 2px 0 0; color: var(--suave); font-size: 0.9rem; }
+
+/* ---------- Formulario ---------- */
+
+.formulario { display: flex; flex-direction: column; gap: 16px; }
+.rejilla-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 560px) { .rejilla-2 { grid-template-columns: minmax(0, 1fr); } }
+
+.campo { display: flex; flex-direction: column; gap: 4px; min-width: 0; border: 0; padding: 0; margin: 0; }
+.campo-cabecera { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.campo label, .campo legend { font-weight: 600; font-size: 0.9rem; }
+
+input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+  width: 100%;
+  font: inherit;
+  padding: 9px 11px;
+  border: 1.5px solid var(--borde);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--texto);
+}
+textarea { resize: vertical; }
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 1px;
+}
+[aria-invalid="true"] { border-color: var(--error) !important; background: var(--error-fondo) !important; }
+
+.ayuda { margin: 0; font-size: 0.8rem; color: var(--suave); }
+.error-campo { margin: 0; font-size: 0.82rem; color: var(--error); font-weight: 600; }
+.error-campo::before { content: "✕ "; }
+
+.grupo-radio { gap: 6px; }
+.opcion { display: flex; align-items: center; gap: 8px; font-weight: 400 !important; cursor: pointer; }
+.opcion input { width: 18px; height: 18px; accent-color: var(--rojo); }
+
+.contador { font-size: 0.8rem; color: var(--suave); font-variant-numeric: tabular-nums; font-weight: 400; }
+.contador.pasado { color: var(--error); font-weight: 700; }
+
+/* ---------- Equipo (useFieldArray) ---------- */
+
+/* Los fieldset tienen min-inline-size: min-content por defecto y desbordan en móvil */
+fieldset { min-inline-size: 0; }
+
+.equipo {
+  border: 1.5px dashed var(--borde);
+  border-radius: var(--radio);
+  padding: 12px 14px 14px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.equipo legend { font-weight: 700; padding: 0 6px; }
+.filas-equipo { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.fila-equipo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr) 90px 38px;
+  gap: 8px;
+  align-items: start;
+}
+@media (max-width: 560px) {
+  .fila-equipo { grid-template-columns: minmax(0, 1fr) 80px 38px; }
+  .fila-equipo .campo:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+}
+.boton-quitar {
+  margin-top: 24px;
+  height: 40px;
+  border: 1.5px solid var(--borde);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+.boton-quitar:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* ---------- Botones ---------- */
+
+.acciones { display: flex; gap: 10px; flex-wrap: wrap; }
+.boton-principal, .boton-secundario, .boton-texto { font: inherit; cursor: pointer; border-radius: 10px; }
+.boton-principal {
+  padding: 11px 22px;
+  border: 0;
+  background: var(--rojo);
+  color: #fff;
+  font-weight: 700;
+}
+.boton-principal:hover:not(:disabled) { background: var(--rojo-oscuro); }
+.boton-secundario {
+  padding: 9px 16px;
+  border: 1.5px solid var(--borde);
+  background: #fff;
+  align-self: flex-start;
+}
+.boton-texto { border: 0; background: none; color: var(--error); padding: 4px 6px; text-decoration: underline; }
+button:disabled { cursor: progress; opacity: 0.6; }
+
+/* ---------- Avisos ---------- */
+
+.aviso {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border-left: 5px solid;
+  font-size: 0.92rem;
+}
+.aviso-exito { background: var(--exito-fondo); border-color: var(--exito); }
+.aviso-error { background: var(--error-fondo); border-color: var(--error); }
+.aviso-info { background: var(--info-fondo); border-color: var(--foco); }
+
+/* ---------- Lista de participantes ---------- */
+
+.lista-cabecera { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+.filtro { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 0.9rem; min-width: 150px; }
+
+.lista-entrenadores, .lista-esqueleto { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.lista-entrenadores { transition: opacity 0.2s; }
+.lista-entrenadores.atenuada { opacity: 0.6; }
+
+.esqueleto {
+  height: 112px;
+  border-radius: var(--radio);
+  background: linear-gradient(90deg, #eee9df 25%, #f8f5ef 50%, #eee9df 75%) 0 0 / 200% 100%;
+  animation: brillo 1.2s infinite linear;
+}
+@keyframes brillo { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .esqueleto { animation: none; } }
+
+.tarjeta-entrenador {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: opacity 0.2s;
+}
+.tarjeta-entrenador.saliendo { opacity: 0.45; }
+.tarjeta-cabecera { display: flex; justify-content: space-between; gap: 10px; }
+.tarjeta-cabecera h3 { font-size: 1.1rem; word-break: break-word; }
+.lema { margin: 0; font-style: italic; color: var(--suave); }
+
+.insignia {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.insignia-junior { background: #fff4c2; color: #6b5300; }
+.insignia-abierta { background: #e3ecff; color: #1f3f8f; }
+
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: var(--fondo); font-size: 0.85rem; }
+.nivel { font-size: 0.75rem; color: var(--suave); font-variant-numeric: tabular-nums; }
+
+.tarjeta-pie { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--suave); }
+
+.vacio { margin: 0; padding: 24px; text-align: center; color: var(--suave); border: 1.5px dashed var(--borde); border-radius: var(--radio); }
+
+/* ---------- Registros descartados (bonus) ---------- */
+
+.descartados { border: 1.5px solid #f0c36d; background: #fff8e6; border-radius: 10px; padding: 10px 14px; font-size: 0.88rem; }
+.descartados summary { cursor: pointer; font-weight: 600; }
+.descartados ul { margin: 8px 0 0; padding-left: 18px; }
+.descartados code { font-weight: 700; }
